@@ -132,7 +132,7 @@ print_movie_details_table(weekly_trending_movie_json_data)
 
 ################################################################################################################################
 '''part two'''
-print('\n\n\n\nPart 2\n\n\n\n')
+print('\n\n\n\nPart 2')
 print('printout of movies\' voter averages sorted\n\n\n\n')
 # Sort and print out the following in formatted form:
 # The titles and vote_average in order of their vote_average for movies.
