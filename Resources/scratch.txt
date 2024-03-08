@@ -1,0 +1,33 @@
+to have an output similar to 
+Title:
+ The Beekeeper
+Popularity: 556.812
+Vote Count: 1575
+
+
+ Mean Girls
+Popularity: 285.621
+Vote Count: 241
+
+
+ The Zone of Interest
+Popularity: 173.673
+Vote Count: 658
+
+
+ Oppenheimer
+Popularity: 337.453
+Vote Count: 6972
+
+
+ The Pig, the Snake and the Pigeon
+Popularity: 139.527
+Vote Count: 48
+
+
+ Aquaman and the Lost Kingdom
+Popularity: 338.587
+Vote Count: 1966
+
+
+

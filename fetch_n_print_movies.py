@@ -24,6 +24,33 @@ def get_weekly_trending_movies():
     )
     return response.json()
 
+
+
+
+def print_movie_details_table(weekly_trending_movies_json):
+    # Define the format for the header and rows to ensure alignment
+    header_format = "{:<50} | {:>10} | {:>10}"
+    row_format = "{:50} | {:10} | {:10}"
+
+    # Print the header with proper alignment
+    header = header_format.format("Title", "Popularity", "Vote Count")
+    print(header)
+    print("-" * len(header))  # Print a divider
+
+    for movie in weekly_trending_movies_json['results']:
+        if movie['media_type'] == 'movie':
+            # Format each line as a table row with fixed column widths
+            row = row_format.format(
+                movie['title'], 
+                str(movie['popularity']), 
+                str(movie['vote_count'])
+            )
+            print(row)
+
+
+
+
+
 ###########################################################################################
 # Prints the title, popularity, and vote count of 
 # each movie in the weekly trending movies JSON object.
@@ -67,7 +94,7 @@ def extract_movie_titles_and_vote_average(movies_json):
 ################################################################################################################################
 # Encodes response into a python json dictionary.
 weekly_trending_movie_json_data = get_weekly_trending_movies()
-print(weekly_trending_movie_json_data)
+#print(weekly_trending_movie_json_data)
 #####################################################
 
 
@@ -76,19 +103,20 @@ print(weekly_trending_movie_json_data)
 # json string that is easy for humans to read.
 # Mouse over function to get definition of indent and sort_keys
 pretty_json_data = json.dumps(weekly_trending_movie_json_data, indent=4, sort_keys=True)
-print(pretty_json_data)
+#print(pretty_json_data)
 
 weekly_trending_movie_object = weekly_trending_movie_json_data
 # Add Parsing Code Here
 
 
 '''part one'''
-print('\n\n\n\nPart 1\n\n\n\n')
+print('\n\n\n\nPart 1')
+print('printout of of movie\'s titles, popularity, vote count \n\n\n\n')
+
 # print out the following in formatted form:
 # The titles, popularity and vote_count of the media type that are returned for movies
 # - you choose the format
-
-print_movie_details(weekly_trending_movie_json_data)
+print_movie_details_table(weekly_trending_movie_json_data)
 
 
 
@@ -100,9 +128,6 @@ print('\n\n\n\nPart 2\n\n\n\n')
 # - you choose the format
 
 movies_titles_and_votes = extract_movie_titles_and_vote_average(weekly_trending_movie_json_data)
+
 # Sort the list of dictionaries by 'vote_average'. Use reverse=True for descending order.
 movies_titles_and_votes.sort(key=lambda x: x['vote_average'], reverse=True)
-
-print(movies_titles_and_votes)
-pretty_movies_titles_and_votes = json.dumps(movies_titles_and_votes, indent=4, sort_keys=True)
-print(pretty_movies_titles_and_votes)
