@@ -27,3 +27,11 @@ print(pretty_json_data)
 
 weekly_trending_movie_object = json_data
 # Add Parsing Code Here
+
+# print out the titles, popularity and vote_count of the media type that are returned for movies in formatted form
+for movie in weekly_trending_movie_object['results']:
+   if movie['media_type'] == 'movie':
+      print(f"Title: {movie['title']}")
+      print(f"Popularity: {movie['popularity']}")
+      print(f"Vote Count: {movie['vote_count']}")
+      print("\n")
