@@ -5,33 +5,104 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())  # This is to load your API keys from .env
 
+# Define the path for the TMDB API request
 TMDB_TRENDING_PATH = 'trending/movie/week'
 TMDB_SEARCH_API_REQUEST = f'https://api.themoviedb.org/3/{TMDB_TRENDING_PATH}?'
 
-#def get_top_10_weekly_trending_movies():
-response = requests.get(
-    TMDB_SEARCH_API_REQUEST,
-    params={
-        'api_key': os.getenv('TMDB_API_KEY')
-    }
-)
+################################################################################################################################
+# functions
+###########################################################################################
+# Define the function to get the weekly trending movies
+# from the TMDB API using the requests library
+# returns a json object
+def get_weekly_trending_movies():
+    response = requests.get(
+        TMDB_SEARCH_API_REQUEST,
+        params={
+            'api_key': os.getenv('TMDB_API_KEY')
+        }
+    )
+    return response.json()
+
+###########################################################################################
+# Prints the title, popularity, and vote count of 
+# each movie in the weekly trending movies JSON object.
+# - weekly_trending_movies_json: A JSON object containing the weekly trending movies data.
+def print_movie_details(weekly_trending_movies_json):
+
+    for movie in weekly_trending_movies_json['results']:
+        if movie['media_type'] == 'movie':
+            print(f"Title: {movie['title']}")
+            print(f"Popularity: {movie['popularity']}")
+            print(f"Vote Count: {movie['vote_count']}")
+            print("\n")
+
+# usage:
+# Assume weekly_trending_movie_json_data is the JSON object 
+# returned from the get_weekly_trending_movies function.
+            
+###########################################################################################
+# Extracts titles and vote averages for movies from a JSON object.
+# - movies_json: A JSON object containing movie data.
+# - Returns: a list of dictionaries, each containing the title and vote average of a movie.
+def extract_movie_titles_and_vote_average(movies_json):
+    movie_details_list = []
+    for movie in movies_json['results']:
+        if movie['media_type'] == 'movie':
+            movie_details = {
+                'title': movie['title'],
+                'vote_average': movie['vote_average']
+            }
+            movie_details_list.append(movie_details)
+    
+    return movie_details_list
+
+# usage:
+# Assume weekly_trending_movie_json_data is the JSON object returned from the get_weekly_trending_movies function.
+# movies_titles_and_votes = extract_movie_titles_and_vote_average(weekly_trending_movie_json_data)
+
+###########################################################################################
+################################################################################################################################
+# main
+################################################################################################################################
 # Encodes response into a python json dictionary.
-json_data = response.json()
-print(json_data)
+weekly_trending_movie_json_data = get_weekly_trending_movies()
+print(weekly_trending_movie_json_data)
+#####################################################
+
+
 
 # Convert json_data to a formatted pretty
 # json string that is easy for humans to read.
 # Mouse over function to get definition of indent and sort_keys
-pretty_json_data = json.dumps(json_data, indent=4, sort_keys=True)
+pretty_json_data = json.dumps(weekly_trending_movie_json_data, indent=4, sort_keys=True)
 print(pretty_json_data)
 
-weekly_trending_movie_object = json_data
+weekly_trending_movie_object = weekly_trending_movie_json_data
 # Add Parsing Code Here
 
-# print out the titles, popularity and vote_count of the media type that are returned for movies in formatted form
-for movie in weekly_trending_movie_object['results']:
-   if movie['media_type'] == 'movie':
-      print(f"Title: {movie['title']}")
-      print(f"Popularity: {movie['popularity']}")
-      print(f"Vote Count: {movie['vote_count']}")
-      print("\n")
+
+'''part one'''
+print('\n\n\n\nPart 1\n\n\n\n')
+# print out the following in formatted form:
+# The titles, popularity and vote_count of the media type that are returned for movies
+# - you choose the format
+
+print_movie_details(weekly_trending_movie_json_data)
+
+
+
+'''part two'''
+print('\n\n\n\nPart 2\n\n\n\n')
+# Sort and print out the following in formatted form:
+# The titles and vote_average in order of their vote_average for movies.
+# - consider using  sorted() or list.sort()
+# - you choose the format
+
+movies_titles_and_votes = extract_movie_titles_and_vote_average(weekly_trending_movie_json_data)
+# Sort the list of dictionaries by 'vote_average'. Use reverse=True for descending order.
+movies_titles_and_votes.sort(key=lambda x: x['vote_average'], reverse=True)
+
+print(movies_titles_and_votes)
+pretty_movies_titles_and_votes = json.dumps(movies_titles_and_votes, indent=4, sort_keys=True)
+print(pretty_movies_titles_and_votes)
