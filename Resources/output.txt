@@ -1,0 +1,65 @@
+PS C:\Users\evanr\OneDrive - Texas State University\Desktop\CS3398SE\Workspace\Assignment11\ers131_11>  c:; cd 'c:\Users\evanr\OneDrive - Texas State University\Desktop\CS3398SE\Workspace\Assignment11\ers131_11'; & 'c:\Users\evanr\AppData\Local\Programs\Python\Python312\python.exe' 'c:\Users\evanr\.vscode\extensions\ms-python.debugpy-2024.2.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher' '59498' '--' 'c:\Users\evanr\OneDrive - Texas State University\Desktop\CS3398SE\Workspace\Assignment11\ers131_11\fetch_n_print_movies.py' 
+
+
+
+
+Part 1
+printout of movies' titles, popularity, vote count 
+
+
+
+
+Title                                              | Popularity | Vote Count
+----------------------------------------------------------------------------
+Dune: Part Two                                     | 1265.804   | 1024
+Poor Things                                        | 976.8      | 1874
+Dune                                               | 738.715    | 10553
+Argylle                                            | 304.359    | 392
+Spaceman                                           | 584.143    | 207
+Wonka                                              | 583.612    | 2387
+Code 8 Part II                                     | 1222.829   | 171
+Anyone But You                                     | 932.844    | 856
+The Beekeeper                                      | 556.812    | 1575
+Mean Girls                                         | 285.621    | 241
+The Zone of Interest                               | 173.673    | 658
+Oppenheimer                                        | 337.453    | 6973
+The Pig, the Snake and the Pigeon                  | 139.527    | 48
+Aquaman and the Lost Kingdom                       | 338.587    | 1966
+Migration                                          | 851.447    | 865
+Code 8                                             | 229.035    | 1744
+The Marvels                                        | 527.379    | 1987
+Madame Web                                         | 282.757    | 316
+Ricky Stanicky                                     | 38.29      | 22
+Anatomy of a Fall                                  | 147.078    | 1269
+
+
+
+
+Part 2
+printout of movies' voter averages sorted
+
+
+
+
+Title                                              | Vote Average
+-----------------------------------------------------------------
+Dune: Part Two                                     | 8.452
+Oppenheimer                                        | 8.115
+Poor Things                                        | 7.97
+The Pig, the Snake and the Pigeon                  | 7.8
+Dune                                               | 7.789
+Anatomy of a Fall                                  | 7.671
+Migration                                          | 7.6
+The Beekeeper                                      | 7.456
+The Zone of Interest                               | 7.3
+Wonka                                              | 7.2
+Anyone But You                                     | 7.0
+Aquaman and the Lost Kingdom                       | 6.835
+Spaceman                                           | 6.722
+Code 8 Part II                                     | 6.6
+Mean Girls                                         | 6.336
+Code 8                                             | 6.225
+The Marvels                                        | 6.2
+Argylle                                            | 6.1
+Ricky Stanicky                                     | 6.1
+Madame Web                                         | 5.316
